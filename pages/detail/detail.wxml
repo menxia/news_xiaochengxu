@@ -1,0 +1,14 @@
+<!--pages/detail/detail.wxml-->
+<view class='title'>{{news.title}}</view>
+<view class='meta-data'>
+  <view class='source'>{{news.source}}</view>
+  <view class='date'>{{news.date}}</view>
+</view>
+<view class='content' wx:for="{{news.content}}">
+  <view class='p' wx:if="{{item.type==='p'}}">{{item.text}}</view>
+  <view class='image-wrapper' wx:elif="{{item.type==='image'}}">
+    <!-- <image class='image' wx:if="{{index===0}}" src="{{news.firstImage}}" mode="scaleToFill"></image> -->
+    <image class='image' src="{{item.src}}" mode="scaleToFill"></image>
+  </view>
+  <!-- <view class='p' wx:if="{{index!==0}}">{{item.text}}</view> -->
+</view>

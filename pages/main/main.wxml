@@ -1,0 +1,27 @@
+<!--pages/main/main.wxml-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" bindtap="navbarTap">{{item}}</text>
+</view>
+ 
+<view class='hotNews-wrapper' data-newsID="{{newsList[0].id}}" bindtap='onTapNews'>
+  <view class="hotNews-title">{{newsList[0].title}}</view>
+  <view class='hotNews-metadata'>
+    <view class="hotNews-source">{{newsList[0].source}}</view>
+    <view class='hotNews-date'>{{newsList[0].date}}</view>
+  </view>
+  <image class="hotNews-img" src="{{newsList[0].firstImage}}" mode="scaleToFill"></image>
+</view>
+
+<view class='news-list' wx:for="{{newsList}}" wx:if="{{index!==0}}">
+  <view class='news-row' data-newsID="{{item.id}}" bindtap='onTapNews'>
+    <view class='text-wrapper'>
+      <view class="news-title">{{item.title}}</view>
+      <view class='news-metadata'>
+        <view class="news-source">{{item.source}}</view>
+        <view class='news-date'>{{item.date}}</view>
+      </view>
+    </view>
+    <image class="news-img" src="{{item.firstImage}}" mode="scaleToFill"></image>
+  </view>
+</view>
+
